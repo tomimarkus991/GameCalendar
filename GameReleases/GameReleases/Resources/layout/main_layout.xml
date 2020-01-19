@@ -1,5 +1,6 @@
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+﻿
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout1" >
+        android:id="@+id/linearLayout1">
         <TextView
             android:text="Upcoming Games"
             android:layout_width="wrap_content"
@@ -22,28 +23,66 @@
             android:layout_weight="1"
             android:id="@+id/searchButton" />
         <Button
-            android:text="Settings"
+            android:text="⚙️"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/settingsButton" />
     </LinearLayout>
-
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayout1"
-        android:id="@+id/viewPager1" >
-
-        <android.support.v4.view.PagerTabStrip
+        android:id="@+id/percentRelativeLayout1">
+        <android.support.v4.view.ViewPager
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_heightPercent="93%"
+            android:layout_below="@id/linearLayout1"
+            android:id="@+id/viewPager1">
+            <android.support.v4.view.PagerTabStrip
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#111"
+                android:id="@+id/pagerTabStrip1"/>
+        </android.support.v4.view.ViewPager>
+    </android.support.percent.PercentRelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/percentRelativeLayout1"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout2">
+        <Button
+            android:text="Top 100"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:textColor="#111"
-            android:id="@+id/pagerTabStrip1"/>
-    </android.support.v4.view.ViewPager>
+            android:layout_weight="1"
+            android:id="@+id/button1" />
+        <Button
+            android:text="Upcoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button2" />
+        <Button
+            android:text="Discover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/upcoming" />
+        <Button
+            android:text="💜"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/favorites" />
+    </LinearLayout>
+
 </RelativeLayout>
