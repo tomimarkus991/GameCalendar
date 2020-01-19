@@ -1,0 +1,6 @@
+Muuda PagerAdapteris strip nimed ära
+Tee uus Adapter
+Tee uus Fragment
+Tee uus method DataServiceisse
+Tee uus layout
+MainActivitysse pane GetFragments methodisse uus fragment

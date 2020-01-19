@@ -1,0 +1,145 @@
+teha see et kuvaks ainult selle konsooli kuhu mäng pole veel välja tulnud
+
+    <string name="January2020">Januar 2020</string>
+    <string name="February2020">February 2020</string>
+    <string name="March2020">March 2020</string>
+    <string name="April2020">April 2020</string>
+    <string name="May2020">May 2020</string>
+    <string name="June2020">June 2020</string>
+    <string name="July2020">July 2020</string>
+    <string name="August2020">August 2020</string>
+    <string name="September2020">September 2020</string>
+    <string name="October2020">Spooktober 2020</string>
+    <string name="November2020">November 2020</string>
+    <string name="December2020">December 2020</string>
+    <string name="January2021">January 2021</string>
+
+
+
+fields name; where id=(3,6,49,14,48,34,39,130,165,163,162,169,167,170); limit 14;
+
+"search \"Little Tennis\"; fields name, platforms.slug;"
+
+ search "The Supper"; fields name, platforms;
+
+//int x = item.Platforms.Count;
+            switch (x)
+            {
+                case 1:
+                    view.FindViewById<TextView>(Resource.Id.PS4).Text = item.Platforms[0].Name;
+                    break;
+                case 2:
+                    view.FindViewById<TextView>(Resource.Id.PS4).Text = item.Platforms[0].Name + item.Platforms[1].Name;
+                    break;
+                case 3:
+                    view.FindViewById<TextView>(Resource.Id.PS4).Text = item.Platforms[0].Name + item.Platforms[1].Name + item.Platforms[2].Name;
+                    break;
+                case 4:
+                    view.FindViewById<TextView>(Resource.Id.PS4).Text = item.Platforms[0].Name + item.Platforms[1].Name + item.Platforms[2].Name + item.Platforms[3].Name;
+                    break;
+                default:
+                    Console.WriteLine("yeet");
+                    break;
+            }
+
+
+
+            //foreach (var platform in item.Platforms)
+            // || item.Platforms[i].Slug == "steam--1"
+            //int i = 0;
+            //foreach (var platform in item.Platforms)
+            //{
+            //    if (item.Platforms[i].Slug == "win")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.PC).Text = "PC ";
+            //    }
+            //    //if (item.Platforms[i].Slug == "PC (Microsoft Windows)" || item.Platforms[i].Slug == "SteamOS")
+            //    //{
+            //    //    //var drawable = typeof(Resource.Drawable)
+            //    //    view.FindViewById<ImageView>(Resource.Id.PC2).SetImageResource(Resource.Drawable.PC);
+            //    //}
+            //    else if (item.Platforms[i].Slug == "ps3")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.PS3).Text = "PS3 ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "ps4--1")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.PS4).Text = "PS4 ";
+            //    }
+            //    //else if (item.Platforms[i].Slug == "ps4--1")
+            //    //{
+            //    //    view.FindViewById<ImageView>(Resource.Id.PS42).SetImageResource(Resource.Drawable.PS4);
+            //    //}
+            //    else if (item.Platforms[i].Slug == "playstation-5")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.PS5).Text = "PS5 ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "xboxone")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.XboxO).Text = "Xbox One ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "xbox-series-x")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.XboxX).Text = "Xbox Series X ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "switch")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.NSwitch).Text = "Nintendo Switch ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "android")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.Android).Text = "Android ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "ios")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.IOS).Text = "IOS ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "mac")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.Mac).Text = "Mac ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "linux")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.Linux).Text = "Linux ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "playstation-vr")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.PSVR).Text = "PlayStationVR";
+            //    }
+            //    else if (item.Platforms[i].Slug == "oculus-vr")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.OculusVR).Text = "Oculus VR ";
+            //    }
+            //    else if (item.Platforms[i].Slug == "steam-vr")
+            //    {
+            //        view.FindViewById<TextView>(Resource.Id.SteamVR).Text = "Steam VR ";
+            //    }
+            //    i++;
+            //}
+
+            //int x = item.Platforms.Count;
+
+            //int i = 0;
+            //string x = item.Platforms[i].Slug;
+            //switch (x)
+            //{
+            //    case "win":
+            //        //view.FindViewById<ImageView>(Resource.Id.PC2).SetImageResource(Resource.Drawable.PC);
+            //        view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
+            //        break;
+            //    case "ps4--1":
+            //        //view.FindViewById<ImageView>(Resource.Id.PS42).SetImageResource(Resource.Drawable.PS4);
+            //        view.FindViewById<TextView>(Resource.Id.ps4).Text = "PS4 ";
+            //        break;
+            //    case "xboxone":
+            //        view.FindViewById<TextView>(Resource.Id.xboxO).Text = "Xbox One ";
+            //        break;
+            //    case "switch":
+            //        view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Nintendo Switch ";
+            //        break;
+            //}
+
+
+
+
+

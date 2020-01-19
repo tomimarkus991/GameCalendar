@@ -1,0 +1,82 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout1">
+        <ImageView
+            android:layout_width="250px"
+            android:layout_height="250px"
+            android:id="@+id/gameCover" />
+        <TextView
+            android:text="Game name"
+            android:textSize="75px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_toRightOf="@id/gameCover"
+            android:id="@+id/name" />
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@id/gameCover"
+            android:id="@+id/linearLayout1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/gameCover"
+                android:id="@+id/linux" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/linux"
+                android:id="@+id/pc" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/pc"
+                android:id="@+id/mac" />
+            <TextView
+                android:text=" "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/mac"
+                android:id="@+id/ps4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/ps4"
+                android:id="@+id/xboxO" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_toRightOf="@id/xboxO"
+                android:id="@+id/nSwitch" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/alreadyReleased" />
+        </RelativeLayout>
+        <TextView
+            android:text="Release Date"
+            android:textSize="60px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_below="@id/linearLayout1"
+            android:layout_toRightOf="@id/gameCover"
+            android:id="@+id/releaseDate" />
+    </RelativeLayout>
+</RelativeLayout>
