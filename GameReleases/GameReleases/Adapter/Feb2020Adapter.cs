@@ -49,17 +49,6 @@ namespace GameReleases.Adapter
                 }
 
                 view.FindViewById<TextView>(Resource.Id.name).Text = item.Name;
-                //DateTime localTime = DateTime.Now;
-                //string unixTime = item.FirstReleaseDate.ToString();
-                //double unixtime2 = Convert.ToDouble(unixTime);
-                //DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                //dtDateTime = dtDateTime.AddSeconds(unixtime2).ToLocalTime();
-                //if (localTime <= dtDateTime)
-                //{
-
-                //Platforms(position, convertView);
-
-
                 // Platform
 
                 if (item.Platforms.Count == 0)
@@ -226,13 +215,31 @@ namespace GameReleases.Adapter
                 // Picture
                 if (item.Cover == null)
                 {
-                    view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture);
+                    view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
                 }
                 else
                 {
-                    string apiBaseURL = item.Cover.Url;
+                    string apiBaseURL = "https:" + item.Cover.Url;
                     var imageView = view.FindViewById<ImageView>(Resource.Id.gameCover);
-                    ImageService.Instance.LoadUrl("https:" + apiBaseURL).Into(imageView);
+
+                    string coverBig = apiBaseURL.Replace("/t_thumb/", "/t_cover_big/");
+
+                    ImageService.Instance.LoadUrl(coverBig).Into(imageView);
+                }
+                DateTime localTime = DateTime.Now;
+                string unixTime = item.FirstReleaseDate.ToString();
+                double unixtime2 = Convert.ToDouble(unixTime);
+                DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                dtDateTime = dtDateTime.AddSeconds(unixtime2).ToLocalTime();
+                if (localTime >= dtDateTime)
+                {
+                    view.FindViewById<TextView>(Resource.Id.countDownView).Text = "RL";
+                }
+                else
+                {
+                    var number = dtDateTime - localTime;
+                    var inDays = number.Days;
+                    view.FindViewById<TextView>(Resource.Id.countDownView).Text = inDays.ToString() + "d";
                 }
             }
             return view;
@@ -244,173 +251,6 @@ namespace GameReleases.Adapter
             dtDateTime = dtDateTime.AddSeconds(unixtime2).ToLocalTime();
             string gameReleaseDate = dtDateTime.ToString("dd MMM, yyyy");
             return gameReleaseDate;
-        }
-        public void Platforms(int position, View convertView)
-        {
-
-            var item = games[position];
-            View view = convertView;
-            if (view == null)
-            {
-                view = febFragment.LayoutInflater.Inflate(Resource.Layout.game_row, null);
-            }
-            if (item.Platforms.Count == 0)
-            {
-                view.FindViewById<TextView>(Resource.Id.linux).Text = "";
-                view.FindViewById<TextView>(Resource.Id.pc).Text = "";
-                view.FindViewById<TextView>(Resource.Id.mac).Text = "";
-                view.FindViewById<TextView>(Resource.Id.ps4).Text = "";
-                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "";
-                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "";
-            }
-            else
-            {
-                int x = item.Platforms.Count;
-                switch (x)
-                {
-                    case 1:
-                        foreach (var platform in item.Platforms)
-                        {
-                            if (platform.Id == 3)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "Linux ";
-                            }
-                            else if (platform.Id == 6 || platform.Id == 92)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
-                            }
-                            else if (platform.Id == 14)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "Mac ";
-                            }
-                            else if (platform.Id == 48)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "PS4 ";
-                            }
-                            else if (platform.Id == 49)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "XboxO ";
-                            }
-                            else if (platform.Id == 130)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Switch ";
-                            }
-                        }
-                        break;
-                    case 2:
-                        foreach (var platform in item.Platforms)
-                        {
-                            if (platform.Id == 3)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "Linux ";
-                            }
-                            else if (platform.Id == 6 || platform.Id == 92)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
-                            }
-                            else if (platform.Id == 14)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "Mac ";
-                            }
-                            else if (platform.Id == 48)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "PS4 ";
-                            }
-                            else if (platform.Id == 49)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "XboxO ";
-                            }
-                            else if (platform.Id == 130)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Switch ";
-                            }
-                        }
-                        break;
-                    case 3:
-                        foreach (var platform in item.Platforms)
-                        {
-                            if (platform.Id == 3)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "Linux ";
-                            }
-                            else if (platform.Id == 6 || platform.Id == 92)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
-                            }
-                            else if (platform.Id == 14)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "Mac ";
-                            }
-                            else if (platform.Id == 48)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "PS4 ";
-                            }
-                            else if (platform.Id == 49)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "XboxO ";
-                            }
-                            else if (platform.Id == 130)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Switch ";
-                            }
-                        }
-                        break;
-                    case 4:
-                        foreach (var platform in item.Platforms)
-                        {
-                            if (platform.Id == 3)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.linux).Text = "Linux ";
-                            }
-                            else if (platform.Id == 6 || platform.Id == 92)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
-                            }
-                            else if (platform.Id == 14)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.mac).Text = "Mac ";
-                            }
-                            else if (platform.Id == 48)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.ps4).Text = "PS4 ";
-                            }
-                            else if (platform.Id == 49)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.xboxO).Text = "XboxO ";
-                            }
-                            else if (platform.Id == 130)
-                            {
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "";
-                                view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Switch ";
-                            }
-                        }
-                        break;
-                }
-            }
-
-        }
+        }   
     }
 }

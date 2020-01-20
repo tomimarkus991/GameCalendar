@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/abc_item_background_holo_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -11,23 +12,12 @@
         android:orientation="horizontal"
         android:id="@+id/linearLayout1">
         <TextView
-            android:text="Upcoming Games"
+            android:text="Home"
+            android:textSize="60px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/textView1" />
-        <Button
-            android:text="Search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/searchButton" />
-        <Button
-            android:text="⚙️"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/settingsButton" />
     </LinearLayout>
     <android.support.percent.PercentRelativeLayout
         android:layout_width="wrap_content"

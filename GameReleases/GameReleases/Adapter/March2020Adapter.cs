@@ -40,13 +40,6 @@ namespace GameReleases.Adapter
             }
 
             view.FindViewById<TextView>(Resource.Id.name).Text = item.Name;
-            DateTime localTime = DateTime.Now;
-            string unixTime = item.FirstReleaseDate.ToString();
-            double unixtime2 = Convert.ToDouble(unixTime);
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(unixtime2).ToLocalTime();
-            if (localTime <= dtDateTime)
-            {
                 // Platform
                 if (item.Platforms.Count == 0)
                 {
@@ -204,11 +197,6 @@ namespace GameReleases.Adapter
                             break;
                     }
                 }
-            }
-            else
-            {
-                view.FindViewById<TextView>(Resource.Id.alreadyReleased).Text = "Already Released";
-            }
 
             // Time
             string unixtime = item.FirstReleaseDate.ToString();
@@ -217,13 +205,31 @@ namespace GameReleases.Adapter
             // Picture
             if (item.Cover == null)
             {
-                view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture);
+                view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
             }
             else
             {
-                string apiBaseURL = item.Cover.Url;
+                string apiBaseURL = "https:" + item.Cover.Url;
                 var imageView = view.FindViewById<ImageView>(Resource.Id.gameCover);
-                ImageService.Instance.LoadUrl("https:" + apiBaseURL).Into(imageView);
+
+                string coverBig = apiBaseURL.Replace("/t_thumb/", "/t_cover_big/");
+
+                ImageService.Instance.LoadUrl(coverBig).Into(imageView);
+            }
+            DateTime localTime = DateTime.Now;
+            string unixTime = item.FirstReleaseDate.ToString();
+            double unixtime2 = Convert.ToDouble(unixTime);
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixtime2).ToLocalTime();
+            if (localTime >= dtDateTime)
+            {
+                view.FindViewById<TextView>(Resource.Id.countDownView).Text = "RL";
+            }
+            else
+            {
+                var number = dtDateTime - localTime;
+                var inDays = number.Days;
+                view.FindViewById<TextView>(Resource.Id.countDownView).Text = inDays.ToString() + "d";
             }
             return view;
         }

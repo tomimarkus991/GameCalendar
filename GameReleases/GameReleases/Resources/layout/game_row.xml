@@ -5,76 +5,81 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayout1">
+        <TextView
+            android:textSize="80px"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearLayout1"
+            android:id="@+id/countDownView" />
         <android.support.v7.widget.CardView
-            android:layout_width="250px"
-            android:layout_height="250px"
-            app:cardCornerRadius="20dp"
+            android:layout_width="264px"
+            android:layout_height="374px"
+            android:layout_marginRight="15px"
+            app:cardCornerRadius="40dp"
             android:id="@+id/cardView1">
             <ImageView
-                android:layout_width="250px"
-                android:layout_height="250px"
+                android:layout_width="264px"
+                android:layout_height="374px"
+                android:layout_gravity="center_vertical"
                 android:id="@+id/gameCover" />
         </android.support.v7.widget.CardView>
         <TextView
             android:text="Game name"
             android:textSize="75px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="95px"
+            android:layout_marginBottom="30px"
             android:layout_weight="1"
             android:layout_toRightOf="@id/cardView1"
             android:id="@+id/name" />
         <RelativeLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="130px"
             android:layout_below="@id/name"
             android:layout_toRightOf="@id/cardView1"
             android:id="@+id/linearLayout1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/cardView1"
                 android:id="@+id/linux" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/linux"
                 android:id="@+id/pc" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/pc"
                 android:id="@+id/mac" />
             <TextView
                 android:text=" "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/mac"
                 android:id="@+id/ps4" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/ps4"
                 android:id="@+id/xboxO" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35px"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/xboxO"
                 android:id="@+id/nSwitch" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="45px"
-                android:id="@+id/alreadyReleased" />
         </RelativeLayout>
         <TextView
             android:text="Release Date"

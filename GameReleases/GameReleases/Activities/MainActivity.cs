@@ -7,6 +7,7 @@ using Android.Support.V4.View;
 using Android.Widget;
 using GameReleases.Fragments;
 using System;
+using System.Threading.Tasks;
 using Fragment = Android.Support.V4.App.Fragment;
 using PagerAdapter = GameReleases.Adapter.PagerAdapter;
 
@@ -32,8 +33,8 @@ namespace GameReleases.Activities
             viewPager = FindViewById<ViewPager>(Resource.Id.viewPager1);
             viewPager.Adapter = pAdapter;
 
-            var searchButton = FindViewById<Button>(Resource.Id.searchButton);
-            searchButton.Click += SearchButton_Click;
+            //var searchButton = FindViewById<Button>(Resource.Id.searchButton);
+            //searchButton.Click += SearchButton_Click;
 
             //var gameListView = FindViewById<ListView>(Resource.Id.gamesListView);
             //var gameData = DataService.GetDataFromGame();
@@ -47,11 +48,11 @@ namespace GameReleases.Activities
             fragments.Add(new MarchFragment());
             return fragments;
         }
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(SearchActivity));
-            this.StartActivity(intent);
-        }
+        //private void SearchButton_Click(object sender, EventArgs e)
+        //{
+        //    var intent = new Intent(this, typeof(SearchActivity));
+        //    this.StartActivity(intent);
+        //}
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
