@@ -21,7 +21,7 @@
             android:layout_marginRight="15px"
             app:cardCornerRadius="40dp"
             android:id="@+id/cardView1">
-            <FFImageLoading.Views.ImageViewAsync
+            <ImageView
                 android:layout_width="264px"
                 android:layout_height="374px"
                 android:layout_gravity="center_vertical"
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:layout_toRightOf="@id/cardView1"
             android:id="@+id/name" />
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="130px"
@@ -47,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="45px"
-                android:layout_toRightOf="@id/cardView1"
                 android:id="@+id/linux" />
             <TextView
                 android:layout_width="wrap_content"
@@ -59,28 +58,84 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="45px"
-                android:layout_toRightOf="@id/pc"
                 android:id="@+id/mac" />
             <TextView
-                android:text=" "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="45px"
-                android:layout_toRightOf="@id/mac"
+                android:id="@+id/psVita" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/ps3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
                 android:id="@+id/ps4" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="45px"
+                android:id="@+id/ps5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
                 android:layout_toRightOf="@id/ps4"
+                android:id="@+id/xbox360" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
                 android:id="@+id/xboxO" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="45px"
-                android:layout_toRightOf="@id/xboxO"
+                android:id="@+id/xboxX" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/n3DS" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/nWii" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
                 android:id="@+id/nSwitch" />
-        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/android" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/iOS" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/psVR" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/oculusVR" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="45px"
+                android:id="@+id/steamVR" />
+        </LinearLayout>
         <TextView
             android:text="Release Date"
             android:textSize="60px"

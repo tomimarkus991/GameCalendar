@@ -74,7 +74,7 @@ namespace Api.Core
 
             requestMessage.Headers.Add("Accept", "application/json");
             requestMessage.Headers.Add("user-key", api_key);
-            // 1577836800
+            
             requestMessage.Content = new StringContent("fields name, summary, release_dates.human,platforms.slug, platforms.name, first_release_date, cover.url;" +
                                                        "where first_release_date >= 1577836800 & first_release_date <= 1580515199;" +
                                                        "sort first_release_date asc;" +

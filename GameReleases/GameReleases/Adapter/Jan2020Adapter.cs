@@ -67,13 +67,37 @@ namespace GameReleases.Adapter
                     {
                         view.FindViewById<TextView>(Resource.Id.linux).Text = "Linux ";
                     }
+                    else if (platform.Id == 5)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.nWii).Text = "Wii ";
+                    }
                     else if (platform.Id == 6 || platform.Id == 92)
                     {
                         view.FindViewById<TextView>(Resource.Id.pc).Text = "PC ";
                     }
+                    else if (platform.Id == 9)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.ps3).Text = "PS3 ";
+                    }
+                    else if (platform.Id == 12)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.xbox360).Text = "Xbox 360 ";
+                    }
                     else if (platform.Id == 14)
                     {
                         view.FindViewById<TextView>(Resource.Id.mac).Text = "Mac ";
+                    }
+                    else if (platform.Id == 34)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.android).Text = "Android ";
+                    }
+                    else if (platform.Id == 37)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.n3DS).Text = "Nintendo 3DS ";
+                    }
+                    else if (platform.Id == 39)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.iOS).Text = "iOS ";
                     }
                     else if (platform.Id == 48)
                     {
@@ -81,11 +105,31 @@ namespace GameReleases.Adapter
                     }
                     else if (platform.Id == 49)
                     {
-                        view.FindViewById<TextView>(Resource.Id.xboxO).Text = "XboxO ";
+                        view.FindViewById<TextView>(Resource.Id.xboxO).Text = "Xbox One ";
                     }
                     else if (platform.Id == 130)
                     {
                         view.FindViewById<TextView>(Resource.Id.nSwitch).Text = "Switch ";
+                    }
+                    else if (platform.Id == 162)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.steamVR).Text = "Steam VR ";
+                    }
+                    else if (platform.Id == 163)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.oculusVR).Text = "Oculus VR ";
+                    }
+                    else if (platform.Id == 165)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.psVR).Text = "PSVR ";
+                    }
+                    else if (platform.Id == 167)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.ps5).Text = "PS5 ";
+                    }
+                    else if (platform.Id == 169)
+                    {
+                        view.FindViewById<TextView>(Resource.Id.xboxX).Text = "Xbox Series X ";
                     }
                 }
 
@@ -99,12 +143,12 @@ namespace GameReleases.Adapter
             // Picture
             if (item.Cover == null)
             {
-                view.FindViewById<FFImageLoading.Views.ImageViewAsync>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
+                view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
             }
             else
             {
                 string apiBaseURL = "https:" + item.Cover.Url;
-                var imageView = view.FindViewById<FFImageLoading.Views.ImageViewAsync>(Resource.Id.gameCover);
+                var imageView = view.FindViewById<ImageView>(Resource.Id.gameCover);
 
                 string coverBig = apiBaseURL.Replace("/t_thumb/", "/t_cover_big/");
 

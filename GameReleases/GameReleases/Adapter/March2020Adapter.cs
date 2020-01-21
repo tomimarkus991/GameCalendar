@@ -97,12 +97,12 @@ namespace GameReleases.Adapter
             // Picture
             if (item.Cover == null)
             {
-                view.FindViewById< FFImageLoading.Views.ImageViewAsync>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
+                view.FindViewById< ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
             }
             else
             {
                 string apiBaseURL = "https:" + item.Cover.Url;
-                var imageView = view.FindViewById<FFImageLoading.Views.ImageViewAsync>(Resource.Id.gameCover);
+                var imageView = view.FindViewById<ImageView>(Resource.Id.gameCover);
 
                 string coverBig = apiBaseURL.Replace("/t_thumb/", "/t_cover_big/");
 
