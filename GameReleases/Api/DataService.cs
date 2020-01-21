@@ -80,7 +80,7 @@ namespace Api.Core
                                                        "sort first_release_date asc;" +
                                                        "limit 500; ", Encoding.UTF8, "application/json");
 
-            var response = apiClient.SendAsync(requestMessage).Result;
+            var response = await apiClient.SendAsync(requestMessage);
 
             List<Game> gameData = null;
             if (response != null)
@@ -108,7 +108,7 @@ namespace Api.Core
                                                        "sort first_release_date asc;" +
                                                        "limit 500; ", Encoding.UTF8, "application/json");
 
-            var response = apiClient.SendAsync(requestMessage).Result;
+            var response =  await apiClient.SendAsync(requestMessage);
 
             List<Game> gameData = null;
             if (response != null)
@@ -136,7 +136,7 @@ namespace Api.Core
                                                        "sort first_release_date asc;" +
                                                        "limit 500; ", Encoding.UTF8, "application/json");
 
-            var response = apiClient.SendAsync(requestMessage).Result;
+            var response = await apiClient.SendAsync(requestMessage);
 
             List<Game> gameData = null;
             if (response != null)

@@ -17,11 +17,11 @@
             android:id="@+id/countDownView" />
         <android.support.v7.widget.CardView
             android:layout_width="264px"
-            android:layout_height="374px"
+            android:layout_height="350px"
             android:layout_marginRight="15px"
             app:cardCornerRadius="40dp"
             android:id="@+id/cardView1">
-            <ImageView
+            <FFImageLoading.Views.ImageViewAsync
                 android:layout_width="264px"
                 android:layout_height="374px"
                 android:layout_gravity="center_vertical"

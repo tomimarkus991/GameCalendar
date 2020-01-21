@@ -9,5 +9,5 @@ You need an API Key [Get a Key](https://api.igdb.com/signup?plan_ids[]=235735596
 [ApI Documentation](https://api-docs.igdb.com/#about)
 
 
-After Opening the Project go to GameReleases --> values --> strings.xml and put your API key in api_key string
+After Opening the Project go to GameReleases --> Resources --> values --> strings.xml and put your API key in api_key string
 Now you are all done. Enjoy

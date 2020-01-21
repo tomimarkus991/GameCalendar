@@ -18,19 +18,26 @@ namespace GameReleases.Fragments
             View view = inflater.Inflate(Resource.Layout.march2020, container, false);
             march2020LV = view.FindViewById<ListView>(Resource.Id.march2020ListView);
 
-            var gameDataMarch = DataService.GetDataForMarch2020(Resources.GetString(Resource.String.api_key));
-            march2020LV.Adapter = new March2020Adapter(this, gameDataMarch.Result);
+            OnResume();
+
+            return view;
+        }
+        async public override void OnResume()
+        {
+            base.OnResume();
+
+            var gameDataMarch = await DataService.GetDataForMarch2020(Resources.GetString(Resource.String.api_key));
+            march2020LV.Adapter = new March2020Adapter(this, gameDataMarch);
 
             march2020LV.FastScrollEnabled = true;
             march2020LV.ItemClick += (object sender, ItemClickEventArgs e) =>
             {
-                var gameDetails = gameDataMarch.Result[e.Position];
+                var gameDetails = gameDataMarch[e.Position];
                 JanFragment janFragment = new JanFragment();
                 var intent = new Intent(Activity, typeof(GameDetailsActivity));
                 intent.PutExtra("gameDetails", JsonConvert.SerializeObject(gameDetails));
                 StartActivity(intent);
             };
-            return view;
         }
     }
 }
