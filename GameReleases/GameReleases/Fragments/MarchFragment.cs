@@ -22,7 +22,7 @@ namespace GameReleases.Fragments
 
             return view;
         }
-        async public override void OnResume()
+        async public new void OnResume()
         {
             base.OnResume();
 
@@ -38,6 +38,7 @@ namespace GameReleases.Fragments
                 intent.PutExtra("gameDetails", JsonConvert.SerializeObject(gameDetails));
                 StartActivity(intent);
             };
+
         }
     }
 }
