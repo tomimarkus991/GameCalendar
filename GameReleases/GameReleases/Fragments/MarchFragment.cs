@@ -24,12 +24,10 @@ namespace GameReleases.Fragments
         }
         async public new void OnResume()
         {
-            base.OnResume();
-
             var gameDataMarch = await DataService.GetDataForMarch2020(Resources.GetString(Resource.String.api_key));
             march2020LV.Adapter = new March2020Adapter(this, gameDataMarch);
-
             march2020LV.FastScrollEnabled = true;
+
             march2020LV.ItemClick += (object sender, ItemClickEventArgs e) =>
             {
                 var gameDetails = gameDataMarch[e.Position];
@@ -38,7 +36,6 @@ namespace GameReleases.Fragments
                 intent.PutExtra("gameDetails", JsonConvert.SerializeObject(gameDetails));
                 StartActivity(intent);
             };
-
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Api.Core.Data;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Api.Core
 {
     public class Game
-    {
+    {      
         public List<Game> Game_data { get; set; }
         [JsonProperty("id")]
         public long Id { get; set; }
@@ -97,7 +98,7 @@ namespace Api.Core
         public List<long>Themes { get; set; }
 
         [JsonProperty("genres")]
-        public List<long> Genres { get; set; }
+        public List<Genre> Genres { get; set; }
 
         [JsonProperty("expansions")]
         public List<long> Expansions { get; set; }
@@ -107,6 +108,7 @@ namespace Api.Core
 
         [JsonProperty("pulse_count")]
         public long PulseCount { get; set; }
+        public List<Company> Company { get; set; }
 
         [JsonProperty("platforms")]
         public List<Platform> Platforms { get; set; }

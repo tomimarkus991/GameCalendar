@@ -35,12 +35,11 @@ namespace GameReleases.Adapter
             {
                 view = janFragment.LayoutInflater.Inflate(Resource.Layout.game_row, null);
             }
-
-            GetName(position, view);
-            GetPlatforms(position, view);
-            CalculateReleaseDate(position, view);
-            GetAndDisplayImage(position, view);
-            CalculateDaysRemainingUntilRelease(position, view);
+                GetName(position, view);
+                GetPlatforms(position, view);
+                CalculateReleaseDate(position, view);
+                GetAndDisplayImage(position, view);
+                CalculateDaysRemainingUntilRelease(position, view);
 
             return view;
         }
@@ -64,7 +63,6 @@ namespace GameReleases.Adapter
         public void GetPlatforms(int position, View view)
         {
             var item = games[position];
-
             view.FindViewById<TextView>(Resource.Id.linux).Text = "";
             view.FindViewById<TextView>(Resource.Id.nWii).Text = "";
             view.FindViewById<TextView>(Resource.Id.pc).Text = "";
@@ -160,6 +158,7 @@ namespace GameReleases.Adapter
         {
             var item = games[position];
 
+            view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.white);
             if (item.Cover == null)
             {
                 view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);

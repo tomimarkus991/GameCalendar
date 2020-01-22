@@ -47,13 +47,11 @@ namespace GameReleases.Adapter
         public void GetName(int position, View view)
         {
             var item = games[position];
-
             view.FindViewById<TextView>(Resource.Id.name).Text = item.Name;
         }
         public void CalculateReleaseDate(int position, View view)
         {
             var item = games[position];
-
             string unixTime = item.FirstReleaseDate.ToString();
             double unixtime2 = Convert.ToDouble(unixTime);
             DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -155,11 +153,13 @@ namespace GameReleases.Adapter
                     view.FindViewById<TextView>(Resource.Id.xboxX).Text = "Xbox Series X ";
                 }
             }
+
+
         }
         public void GetAndDisplayImage(int position, View view)
         {
             var item = games[position];
-
+            view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.white);
             if (item.Cover == null)
             {
                 view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);
@@ -173,11 +173,12 @@ namespace GameReleases.Adapter
 
                 ImageService.Instance.LoadUrl(coverBig).Into(imageView);
             }
+
+
         }
         public void CalculateDaysRemainingUntilRelease(int position, View view)
         {
             var item = games[position];
-
             DateTime localTime = DateTime.Now;
             string unixTime = item.FirstReleaseDate.ToString();
             double unixtime2 = Convert.ToDouble(unixTime);

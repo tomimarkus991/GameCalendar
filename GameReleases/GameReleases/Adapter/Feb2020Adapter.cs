@@ -168,6 +168,7 @@ namespace GameReleases.Adapter
         {
             var item = games[position];
 
+            view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.white);
             if (item.Cover == null)
             {
                 view.FindViewById<ImageView>(Resource.Id.gameCover).SetImageResource(Resource.Drawable.no_picture2);

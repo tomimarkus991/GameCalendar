@@ -25,10 +25,9 @@ namespace GameReleases.Fragments
         }
         async public new void OnResume()
         {
-            base.OnResume();
-            
             var gameDataJan = await DataService.GetDataForJanuary2020(Resources.GetString(Resource.String.api_key));
             january2020LV.Adapter = new Jan2020Adapter(this, gameDataJan);
+            january2020LV.FastScrollEnabled = true;
 
             january2020LV.ItemClick += (object sender, ItemClickEventArgs e) =>
             {
@@ -38,9 +37,6 @@ namespace GameReleases.Fragments
                 intent.PutExtra("gameDetails", JsonConvert.SerializeObject(gameDetails));
                 StartActivity(intent);
             };
-
-            january2020LV.FastScrollEnabled = true;
-
         }
     }
 }
