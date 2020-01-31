@@ -34,7 +34,7 @@ namespace Api.Core
             }
             return gameData;
         }
-        public static async Task<List<Game>> GetDataFromGame(string api_key)
+        public static async Task<List<Game>> GetDataFromGame(string api_key, string first_date, string second_date)
         {
             string apiBaseURL = "https://api-v3.igdb.com/games/";
             var apiClient = new HttpClient()
@@ -42,13 +42,14 @@ namespace Api.Core
                 BaseAddress = new Uri(apiBaseURL)
             };
 
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiClient.BaseAddress);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, apiClient.BaseAddress); // 1577836800 1580515199
 
             requestMessage.Headers.Add("Accept", "application/json");
             requestMessage.Headers.Add("user-key", api_key);
             // 1577836800
             requestMessage.Content = new StringContent("fields name, summary, release_dates.human,platforms.slug, platforms.name, first_release_date, cover.url;" +
-                                                       "where first_release_date >= 1577836800 & first_release_date <= 1580515199;" +
+                                                       "where first_release_date >= " + first_date +
+                                                       " & first_release_date <= " + second_date + ";" +
                                                        "sort first_release_date asc;" +
                                                        "limit 250; ", Encoding.UTF8, "application/json");
 

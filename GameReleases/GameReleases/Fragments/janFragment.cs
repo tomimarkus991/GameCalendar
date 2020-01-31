@@ -6,6 +6,7 @@ using Api.Core;
 using GameReleases.Activities;
 using GameReleases.Adapter;
 using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using static Android.Widget.AdapterView;
 
@@ -28,6 +29,10 @@ namespace GameReleases.Fragments
             var gameDataJan = await DataService.GetDataForJanuary2020(Resources.GetString(Resource.String.api_key));
             january2020LV.Adapter = new Jan2020Adapter(this, gameDataJan);
             january2020LV.FastScrollEnabled = true;
+
+            DateTime dt = new DateTime();
+            var yes = dt.ToLocalTime();
+            yes.ToUniversalTime();
 
             january2020LV.ItemClick += (object sender, ItemClickEventArgs e) =>
             {

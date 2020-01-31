@@ -39,7 +39,7 @@ namespace GameReleases.Adapter
                 GetPlatforms(position, view);
                 CalculateReleaseDate(position, view);
                 GetAndDisplayImage(position, view);
-                CalculateDaysRemainingUntilRelease(position, view);
+                CalculateDaysRemainingUntilRelease(position, view); // todo pane datetimekind.utc localiks
 
             return view;
         }
